@@ -51,8 +51,14 @@ set showmatch
 "Highlight search results"
 set hlsearch
 
+"Changes the search highlighting colour"
+hi Search ctermbg=green
+
 "Incremental searches"
 set incsearch
+
+"Case insensitive search"
+set ignorecase
 
 "Start diff mode with vertical splits"
 set diffopt=vertical
@@ -75,8 +81,6 @@ endfunction
 com Word call WordProcessorMode()
 
 "Changing the status line colour to show insert or normal mode"
-if version >= 700
-    highlight statusLine cterm=bold ctermfg=black ctermbg=blue
-    au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=blue
-    au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
-endif
+highlight statusLine cterm=bold ctermfg=black ctermbg=blue
+au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=blue
+au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
