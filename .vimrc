@@ -4,13 +4,13 @@
 
 """"""""""""""""""""""""""""""""""""""""""""
 
-"Enable syntax highlighting"
+"Enable Syntax Highlighting"
 syntax enable
 
-"Default background"
+"Default Background"
 set bg=dark
 
-"Setting background"
+"Setting Background"
 function Dark()
     set bg=dark
 endfunction
@@ -21,52 +21,52 @@ function Light()
 endfunction
 com Light call Light()
 
-"Number of visual spaces per tab"
+"Number Of Visual Spaces Per Tab"
 set tabstop=4
 
-"Number of spaces in tab when editing"
+"Number Of Spaces In Tab When Editing"
 set softtabstop=4
 
-"Tabs are spaces"
+"Tabs Are Spaces"
 set expandtab
 
-"Display line numbers"
+"Display Line Numbers"
 set number
 
-"Highlights current line"
+"Highlights Current Line"
 set cursorline
 
 "Automatic Word Wrapping"
 set textwidth=80
 
-"Loads filetype-specific indent files"
+"Loads Filetype-Specific Indent Files"
 filetype indent on
 
-"Visual autocomplete for command menu"
+"Visual Autocomplete For Command Menu"
 set wildmenu
 
-"Highlights matching [{()}]"
+"Highlights Matching [{()}]"
 set showmatch
 
-"Highlight search results"
+"Highlight Search Results"
 set hlsearch
 
-"Changes the search highlighting colour"
+"Changes The Search Highlighting Colour"
 hi Search ctermbg=green
 
-"Incremental searches"
+"Incremental Searches"
 set incsearch
 
-"Case insensitive search"
+"Case Insensitive Search"
 set ignorecase
 
-"Start diff mode with vertical splits"
+"Start Diff Mode With Vertical Splits"
 set diffopt=vertical
 
-"Always displays the status line, even if only one window is displayed"
+"Always Displays The Status Line"
 set ls=2
 
-"Display the cursor position on the last line of the screen or in the status line of a window"
+"Display The Cursor Position On The Last Line Of The Screen Or In The Status Line Of A Window"
 set ruler
 
 "Word Processor Mode"
@@ -80,7 +80,29 @@ function WordProcessorMode()
 endfunction
 com Word call WordProcessorMode()
 
-"Changing the status line colour to show insert or normal mode"
+"Changing The Status Line Colour To Show Insert Or Normal Mode"
 highlight statusLine cterm=bold ctermfg=black ctermbg=blue
 au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=blue
 au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
+
+"Plugin Section"
+
+"Installation"
+"Check Vim-Plug Installation Guide"
+
+"Use PlugInstall To Install Plugins"
+"Use PlugUpdate To Update Plugins"
+
+call plug#begin()
+
+"NERDTree Will Be Loaded On The First Invocation Of NERDTreeToggle Command"
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+call plug#end()
+
+"Opens NERDTree On Startup"
+autocmd vimenter * NERDTree
+autocmd vimenter * wincmd p
+
+"Closes Vim If NERDTree Is The Only Window Left Open"
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
