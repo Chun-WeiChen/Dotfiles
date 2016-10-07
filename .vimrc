@@ -101,6 +101,9 @@ call plug#begin()
 "NERDTree Will Be Loaded On The First Invocation Of NERDTreeToggle Command"
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
+"IndentLine Plugin"
+Plug 'https://github.com/Yggdroot/indentLine.git'
+
 call plug#end()
 
 "Opens NERDTree On Startup"
