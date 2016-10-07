@@ -51,8 +51,11 @@ set showmatch
 "Highlight Search Results"
 set hlsearch
 
-"Changes The Search Highlighting Colour"
+"Changes The Search Highlight Colour"
 hi Search ctermbg=green
+
+"Maps Ctrl-c To Unhighlight Searches"
+map <C-c> :noh<CR>
 
 "Incremental Searches"
 set incsearch
