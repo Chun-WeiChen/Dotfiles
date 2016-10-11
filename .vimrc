@@ -21,11 +21,21 @@ function Light()
 endfunction
 com Light call Light()
 
+"Autocomplete Brackets"
+inoremap ( ()<Esc>i
+inoremap { {<CR>}<Esc>i
+inoremap [ []<Esc>i
+inoremap ' ''<Esc>i
+inoremap " ""<Esc>i
+
 "Number Of Visual Spaces Per Tab"
 set tabstop=4
 
 "Number Of Spaces In Tab When Editing"
 set softtabstop=4
+
+"Setting Shift Width"
+set shiftwidth=4
 
 "Tabs Are Spaces"
 set expandtab
@@ -101,8 +111,8 @@ call plug#begin()
 "NERDTree Will Be Loaded On The First Invocation Of NERDTreeToggle Command"
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-"IndentLine Plugin"
-Plug 'https://github.com/Yggdroot/indentLine.git'
+"Indent Guides Plugin"
+Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
 
 call plug#end()
 
@@ -112,3 +122,10 @@ autocmd vimenter * wincmd p
 
 "Closes Vim If NERDTree Is The Only Window Left Open"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"Enables Indent Guides"
+let g:indent_guides_enable_on_vim_startup=1
+
+"Configuring Indent Guides"
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
