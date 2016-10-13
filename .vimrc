@@ -8,7 +8,7 @@
 syntax enable
 
 "Default Background"
-set bg=dark
+set bg=light
 
 "Setting Background"
 function Dark()
@@ -82,11 +82,8 @@ set ls=2
 "Display The Cursor Position On The Last Line Of The Screen Or In The Status Line Of A Window"
 set ruler
 
-"Maps Ctrl-1 To Next Buffer"
+"Maps Ctrl-N To Next Buffer"
 nnoremap <C-N> :bnext<CR>
-
-"Maps Ctrl-2 To Previous Buffer"
-nnoremap <C-P> :bprev<CR>
 
 "Word Processor Mode"
 function WordProcessorMode()
@@ -123,6 +120,9 @@ Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
 "Buftabline Plugin"
 Plug 'https://github.com/ap/vim-buftabline.git'
 
+"Ctrlp Plugin"
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+
 call plug#end()
 
 "Opens NERDTree On Startup"
@@ -138,6 +138,13 @@ let g:indent_guides_enable_on_vim_startup=1
 "Configuring Indent Guides"
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermfg=black ctermbg=darkgray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermfg=black ctermbg=darkgray
 
 "Configuring Buftabline"
 let g:buftabline_separators=1
+
+"Configuring Ctrlp"
+let g:ctrlp_map='<C-P>'
+let g:ctrlp_cmd='CtrlP'
