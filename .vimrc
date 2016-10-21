@@ -7,6 +7,9 @@
 "Enable Syntax Highlighting"
 syntax enable
 
+"Enables 256 Colors In Vim"
+set t_Co=256
+
 "Default Background"
 set bg=light
 
@@ -85,6 +88,15 @@ set ruler
 "Maps Ctrl-N To Next Buffer"
 nnoremap <C-N> :bnext<CR>
 
+"Maps Ctrl-P To Previous Buffer"
+nnoremap <C-P> :bprev<CR>
+
+"Maps Space To Leader"
+let mapleader="\<Space>"
+
+"Maps Leader-T To FZF"
+nnoremap <Leader>t :FZF<CR>
+
 "Word Processor Mode"
 function WordProcessorMode()
     setlocal spell
@@ -96,11 +108,6 @@ function WordProcessorMode()
 endfunction
 com Word call WordProcessorMode()
 
-"Changing The Status Line Colour To Show Insert Or Normal Mode"
-highlight statusLine cterm=bold ctermfg=black ctermbg=blue
-au InsertLeave * highlight StatusLine cterm=bold ctermfg=black ctermbg=blue
-au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
-
 "Plugin Section"
 
 "Installation"
@@ -111,17 +118,21 @@ au InsertEnter * highlight StatusLine cterm=bold ctermfg=black ctermbg=green
 
 call plug#begin()
 
+"FZF Plugin"
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 "NERDTree Will Be Loaded On The First Invocation Of NERDTreeToggle Command"
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 "Indent Guides Plugin"
 Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
 
-"Buftabline Plugin"
-Plug 'https://github.com/ap/vim-buftabline.git'
+"Vim-Airline Plugin"
+Plug 'https://github.com/vim-airline/vim-airline.git'
 
-"Ctrlp Plugin"
-Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+"Vim-Airline-Themes Plugin"
+Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 
 call plug#end()
 
@@ -130,7 +141,7 @@ autocmd vimenter * NERDTree
 autocmd vimenter * wincmd p
 
 "Closes Vim If NERDTree Is The Only Window Left Open"
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if(winnr("$")==1&&exists("b:NERDTree")&&b:NERDTree.isTabTree())|q|endif
 
 "Enables Indent Guides"
 let g:indent_guides_enable_on_vim_startup=1
@@ -138,13 +149,16 @@ let g:indent_guides_enable_on_vim_startup=1
 "Configuring Indent Guides"
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
-let g:indent_guides_auto_colors = 0
+let g:indent_guides_auto_colors=0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermfg=black ctermbg=darkgray
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermfg=black ctermbg=darkgray
 
-"Configuring Buftabline"
-let g:buftabline_separators=1
+"Configuring Vim-Airline"
+let g:airline_left_sep=""
+let g:airline_right_sep=""
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#left_sep=' '
+let g:airline#extensions#tabline#left_alt_sep='|'
 
-"Configuring Ctrlp"
-let g:ctrlp_map='<C-P>'
-let g:ctrlp_cmd='CtrlP'
+"Configuring Vim-Airline-Themes"
+let g:airline_theme='murmur'
