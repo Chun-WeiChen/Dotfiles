@@ -24,13 +24,6 @@ function Light()
 endfunction
 com Light call Light()
 
-"Autocomplete Brackets"
-inoremap ( ()<Esc>i
-inoremap { {<CR><CR>}<Esc>ki
-inoremap [ []<Esc>i
-inoremap ' ''<Esc>i
-inoremap " ""<Esc>i
-
 "Number Of Visual Spaces Per Tab"
 set tabstop=4
 
@@ -124,6 +117,12 @@ Plug 'junegunn/fzf.vim'
 
 "NERDTree Will Be Loaded On The First Invocation Of NERDTreeToggle Command"
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+"Supertab Plugin"
+Plug 'https://github.com/ervandew/supertab.git'
+
+"DelimitMate Plugin"
+Plug 'https://github.com/Raimondi/delimitMate.git'
 
 "Indent Guides Plugin"
 Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
