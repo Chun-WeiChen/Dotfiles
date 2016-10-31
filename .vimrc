@@ -41,6 +41,7 @@ set number
 
 "Highlights Current Line"
 set cursorline
+hi CursorLine term=bold cterm=bold guibg=gray
 
 "Automatic Word Wrapping"
 set textwidth=80
@@ -92,7 +93,10 @@ nnoremap <Leader>t :FZF<CR>
 
 "Word Processor Mode"
 function WordProcessorMode()
+    :Goyo
     setlocal spell
+    hi clear SpellBad
+    hi SpellBad cterm=underline
     setlocal wrap
     setlocal linebreak
     setlocal nolist
@@ -133,6 +137,12 @@ Plug 'https://github.com/vim-airline/vim-airline.git'
 "Vim-Airline-Themes Plugin"
 Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 
+"Goyo Plugin"
+Plug 'https://github.com/junegunn/goyo.vim.git'
+
+"Limelight Plugin"
+Plug 'https://github.com/junegunn/limelight.vim.git'
+
 call plug#end()
 
 "Opens NERDTree On Startup"
@@ -161,3 +171,22 @@ let g:airline#extensions#tabline#left_alt_sep='|'
 
 "Configuring Vim-Airline-Themes"
 let g:airline_theme='murmur'
+
+"Configuring Limelight With Goyo"
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+"Configuring Limelight"
+"Color name (:help cterm-colors) or ANSI code"
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+"Beginning/end of paragraph"
+"When there's no empty line between the paragraphs"
+"and each paragraph starts with indentation"
+let g:limelight_bop = '^\s'
+let g:limelight_eop = '\ze\n^\s'
+
+"Highlighting priority (default: 10)"
+"Set it to -1 not to overrule hlsearch"
+let g:limelight_priority = -1
