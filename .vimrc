@@ -24,6 +24,17 @@ function Light()
 endfunction
 com Light call Light()
 
+"Configuring Text Colors"
+hi Comment ctermfg=darkgray
+hi Constant ctermfg=darkcyan
+hi Identifier ctermfg=darkblue
+hi Type ctermfg=brown
+hi Statement ctermfg=brown
+hi PreProc ctermfg=darkgreen
+
+"Changes The Visual Mode Selection Highlight Color"
+hi Visual ctermbg=black
+
 "Number Of Visual Spaces Per Tab"
 set tabstop=4
 
@@ -58,7 +69,7 @@ set showmatch
 "Highlight Search Results"
 set hlsearch
 
-"Changes The Search Highlight Colour"
+"Changes The Search Highlight Color"
 hi Search ctermbg=green
 
 "Maps Ctrl-c To Unhighlight Searches"
@@ -159,8 +170,8 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermfg=black ctermbg=darkgray
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermfg=black ctermbg=darkgray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermfg=black ctermbg=gray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermfg=black ctermbg=gray
 
 "Configuring Vim-Airline"
 let g:airline_left_sep=""
