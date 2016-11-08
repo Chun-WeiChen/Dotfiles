@@ -102,6 +102,9 @@ let mapleader="\<Space>"
 "Maps Leader-T To FZF"
 nnoremap <Leader>t :FZF<CR>
 
+"Maps Leader-] To Tagbar"
+nnoremap <Leader>] :Tagbar<CR>
+
 "Word Processor Mode"
 function WordProcessorMode()
     :Goyo
@@ -142,6 +145,12 @@ Plug 'https://github.com/Raimondi/delimitMate.git'
 "Indent Guides Plugin"
 Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
 
+"Gitgutter Plugin"
+Plug 'https://github.com/airblade/vim-gitgutter.git'
+
+"Tagbar Plugin"
+Plug 'https://github.com/majutsushi/tagbar.git'
+
 "Vim-Airline Plugin"
 Plug 'https://github.com/vim-airline/vim-airline.git'
 
@@ -170,8 +179,8 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermfg=black ctermbg=gray
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermfg=black ctermbg=gray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermfg=black ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermfg=black ctermbg=black
 
 "Configuring Vim-Airline"
 let g:airline_left_sep=""
