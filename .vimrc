@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""
 
-                "ESSENTIALS"                
+                "ESSENTIALS"
 
 """"""""""""""""""""""""""""""""""""""""""""
 
@@ -32,6 +32,9 @@ hi Type ctermfg=brown
 hi Statement ctermfg=brown
 hi PreProc ctermfg=darkgreen
 
+"Configuring Conceal Colors"
+hi Conceal cterm=bold ctermbg=NONE ctermfg=gray
+
 "Changes The Visual Mode Selection Highlight Color"
 hi Visual ctermbg=black
 
@@ -47,8 +50,13 @@ set shiftwidth=4
 "Tabs Are Spaces"
 set expandtab
 
-"Display Line Numbers"
+"Display Hybrid Line Numbers"
+set relativenumber
 set number
+
+"Changing Line Numbers Color"
+hi CursorLineNr ctermfg=green
+hi LineNr ctermfg=blue
 
 "Highlights Current Line"
 set cursorline
@@ -65,6 +73,9 @@ set wildmenu
 
 "Highlights Matching [{()}]"
 set showmatch
+
+"Changes The Matching Brackets Highlight Color"
+hi MatchParen ctermbg=gray
 
 "Highlight Search Results"
 set hlsearch
@@ -90,22 +101,32 @@ set ls=2
 "Display The Cursor Position On The Last Line Of The Screen Or In The Status Line Of A Window"
 set ruler
 
-"Maps Ctrl-N To Next Buffer"
-nnoremap <C-N> :bnext<CR>
+"Hides Files Instead Of Closing Them"
+:set hidden
 
-"Maps Ctrl-P To Previous Buffer"
-nnoremap <C-P> :bprev<CR>
+"Maps Ctrl-n To Next Buffer"
+nnoremap <C-n> :bnext<CR>
+
+"Maps Ctrl-p To Previous Buffer"
+nnoremap <C-p> :bprev<CR>
+
+"Maps Ctrl-j To Esc"
+inoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
 
 "Maps Space To Leader"
 let mapleader="\<Space>"
 
-"Maps Leader-T To FZF"
+"Maps Leader-n To NERDTree"
+nnoremap <Leader>n :NERDTree<CR>
+
+"Maps Leader-t To FZF"
 nnoremap <Leader>t :FZF<CR>
 
 "Maps Leader-] To Tagbar"
 nnoremap <Leader>] :Tagbar<CR>
 
-"Maps Leader-Q To SyntasticToggleMode"
+"Maps Leader-q To SyntasticToggleMode"
 nnoremap <Leader>q :SyntasticToggleMode<CR>
 
 "Maps Leader-[ To SyntasticCheck"
@@ -151,8 +172,8 @@ Plug 'https://github.com/ervandew/supertab.git'
 "DelimitMate Plugin"
 Plug 'https://github.com/Raimondi/delimitMate.git'
 
-"Indent Guides Plugin"
-Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
+"IndentLine Plugin"
+Plug 'https://github.com/Yggdroot/indentLine.git'
 
 "Gitgutter Plugin"
 Plug 'https://github.com/airblade/vim-gitgutter.git'
@@ -174,10 +195,6 @@ Plug 'https://github.com/junegunn/limelight.vim.git'
 
 call plug#end()
 
-"Opens NERDTree On Startup"
-autocmd vimenter * NERDTree
-autocmd vimenter * wincmd p
-
 "Closes Vim If NERDTree Is The Only Window Left Open"
 autocmd bufenter * if(winnr("$")==1&&exists("b:NERDTree")&&b:NERDTree.isTabTree())|q|endif
 
@@ -195,15 +212,10 @@ let g:syntastic_check_on_wq=0
 let g:syntastic_error_symbol='XX'
 let g:syntastic_warning_symbol='!!'
 
-"Enables Indent Guides"
-let g:indent_guides_enable_on_vim_startup=1
-
-"Configuring Indent Guides"
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermfg=black ctermbg=black
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermfg=black ctermbg=black
+"Configuring IndentLine"
+let g:indentLine_enabled=1
+let g:indentLine_char = '|'
+let g:indentLine_setColors=0
 
 "Configuring Vim-Airline"
 let g:airline_left_sep=""
@@ -220,13 +232,11 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 "Configuring Limelight"
-"Color name (:help cterm-colors) or ANSI code"
 let g:limelight_conceal_ctermfg='gray'
 let g:limelight_conceal_ctermfg=240
 
 "Beginning/end of paragraph"
-"When there's no empty line between the paragraphs"
-"and each paragraph starts with indentation"
+"When there's no empty line between the paragraphs and each paragraph starts with indentation"
 let g:limelight_bop='^\s'
 let g:limelight_eop='\ze\n^\s'
 
