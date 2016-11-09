@@ -105,6 +105,12 @@ nnoremap <Leader>t :FZF<CR>
 "Maps Leader-] To Tagbar"
 nnoremap <Leader>] :Tagbar<CR>
 
+"Maps Leader-Q To SyntasticToggleMode"
+nnoremap <Leader>q :SyntasticToggleMode<CR>
+
+"Maps Leader-[ To SyntasticCheck"
+nnoremap <Leader>[ :SyntasticCheck<CR>
+
 "Word Processor Mode"
 function WordProcessorMode()
     :Goyo
@@ -135,6 +141,9 @@ Plug 'junegunn/fzf.vim'
 
 "NERDTree Will Be Loaded On The First Invocation Of NERDTreeToggle Command"
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+"Syntastic Plugin"
+Plug 'https://github.com/vim-syntastic/syntastic.git'
 
 "Supertab Plugin"
 Plug 'https://github.com/ervandew/supertab.git'
@@ -172,6 +181,20 @@ autocmd vimenter * wincmd p
 "Closes Vim If NERDTree Is The Only Window Left Open"
 autocmd bufenter * if(winnr("$")==1&&exists("b:NERDTree")&&b:NERDTree.isTabTree())|q|endif
 
+"Configuring Syntastic"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+highlight SyntasticError ctermbg=red
+highlight SyntasticWarning ctermbg=red
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_loc_list_height=4
+let g:syntastic_check_on_wq=0
+let g:syntastic_error_symbol='XX'
+let g:syntastic_warning_symbol='!!'
+
 "Enables Indent Guides"
 let g:indent_guides_enable_on_vim_startup=1
 
@@ -198,15 +221,15 @@ autocmd! User GoyoLeave Limelight!
 
 "Configuring Limelight"
 "Color name (:help cterm-colors) or ANSI code"
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
+let g:limelight_conceal_ctermfg='gray'
+let g:limelight_conceal_ctermfg=240
 
 "Beginning/end of paragraph"
 "When there's no empty line between the paragraphs"
 "and each paragraph starts with indentation"
-let g:limelight_bop = '^\s'
-let g:limelight_eop = '\ze\n^\s'
+let g:limelight_bop='^\s'
+let g:limelight_eop='\ze\n^\s'
 
 "Highlighting priority (default: 10)"
 "Set it to -1 not to overrule hlsearch"
-let g:limelight_priority = -1
+let g:limelight_priority=-1
