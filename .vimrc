@@ -35,9 +35,6 @@ hi PreProc ctermfg=darkgreen
 "Configuring Conceal Colors"
 hi Conceal cterm=bold ctermbg=NONE ctermfg=gray
 
-"Changes The Visual Mode Selection Highlight Color"
-hi Visual ctermbg=black
-
 "Number Of Visual Spaces Per Tab"
 set tabstop=4
 
@@ -55,8 +52,8 @@ set relativenumber
 set number
 
 "Changing Line Numbers Color"
-hi CursorLineNr ctermfg=green
-hi LineNr ctermfg=blue
+hi CursorLineNr ctermfg=lightgreen
+hi LineNr ctermfg=lightblue
 
 "Highlights Current Line"
 set cursorline
