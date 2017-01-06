@@ -190,6 +190,9 @@ Plug 'https://github.com/junegunn/goyo.vim.git'
 "Limelight Plugin"
 Plug 'https://github.com/junegunn/limelight.vim.git'
 
+"Swift.vim Plugin"
+Plug 'https://github.com/keith/swift.vim.git'
+
 call plug#end()
 
 "Closes Vim If NERDTree Is The Only Window Left Open"
