@@ -10,6 +10,9 @@ syntax enable
 "Enables 256 Colors In Vim"
 set t_Co=256
 
+"Allows Backspacing Over Everything In Insert Mode"
+set backspace=indent,eol,start
+
 "Default Background"
 set bg=light
 
@@ -129,6 +132,9 @@ nnoremap <Leader>q :SyntasticToggleMode<CR>
 "Maps Leader-[ To SyntasticCheck"
 nnoremap <Leader>[ :SyntasticCheck<CR>
 
+"Maps Leader-l To LLPStartPreview"
+nnoremap <Leader>l :LLPStartPreview<CR>
+
 "Word Processor Mode"
 function WordProcessorMode()
     :Goyo
@@ -193,6 +199,9 @@ Plug 'https://github.com/junegunn/limelight.vim.git'
 "Swift.vim Plugin"
 Plug 'https://github.com/keith/swift.vim.git'
 
+"Vim-Latex-Live-Preview Plugin"
+Plug 'https://github.com/xuhdev/vim-latex-live-preview.git'
+
 call plug#end()
 
 "Closes Vim If NERDTree Is The Only Window Left Open"
@@ -234,12 +243,14 @@ autocmd! User GoyoLeave Limelight!
 "Configuring Limelight"
 let g:limelight_conceal_ctermfg='gray'
 let g:limelight_conceal_ctermfg=240
-
 "Beginning/end of paragraph"
 "When there's no empty line between the paragraphs and each paragraph starts with indentation"
 let g:limelight_bop='^\s'
 let g:limelight_eop='\ze\n^\s'
-
 "Highlighting priority (default: 10)"
 "Set it to -1 not to overrule hlsearch"
 let g:limelight_priority=-1
+
+"Configuring Vim-Latex-Live-Preview"
+autocmd Filetype tex setl updatetime=1
+let g:livepreview_previewer='open -a Preview'
