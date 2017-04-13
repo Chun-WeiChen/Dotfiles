@@ -160,7 +160,7 @@ com Word call WordProcessorMode()
 call plug#begin()
 
 "FZF Plugin"
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 "NERDTree Will Be Loaded On The First Invocation Of NERDTreeToggle Command"
