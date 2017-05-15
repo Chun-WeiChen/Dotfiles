@@ -199,6 +199,9 @@ Plug 'https://github.com/junegunn/limelight.vim.git'
 "Swift.vim Plugin"
 Plug 'https://github.com/keith/swift.vim.git'
 
+"Vim-Go Plugin"
+Plug 'https://github.com/fatih/vim-go.git'
+
 "Vim-Latex-Live-Preview Plugin"
 Plug 'https://github.com/xuhdev/vim-latex-live-preview.git'
 
