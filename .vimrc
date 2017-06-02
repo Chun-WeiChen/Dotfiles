@@ -50,8 +50,7 @@ set shiftwidth=4
 "Tabs Are Spaces"
 set expandtab
 
-"Display Hybrid Line Numbers"
-set relativenumber
+"Display Line Numbers"
 set number
 
 "Changing Line Numbers Color"
