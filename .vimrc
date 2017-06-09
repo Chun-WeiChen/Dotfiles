@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""
 
-                "ESSENTIALS"
+"ESSENTIALS"
 
 """"""""""""""""""""""""""""""""""""""""""""
 
@@ -16,21 +16,10 @@ set backspace=indent,eol,start
 "Default Background"
 set bg=light
 
-"Setting Background"
-function Dark()
-    set bg=dark
-endfunction
-com Dark call Dark()
-
-function Light()
-    set bg=light
-endfunction
-com Light call Light()
-
 "Configuring Text Colors"
 hi Comment ctermfg=darkgray
 hi Constant ctermfg=darkcyan
-hi Identifier ctermfg=darkblue
+hi Identifier ctermfg=lightblue
 hi Type ctermfg=brown
 hi Statement ctermfg=brown
 hi PreProc ctermfg=darkgreen
@@ -55,7 +44,7 @@ set number
 
 "Changing Line Numbers Color"
 hi CursorLineNr ctermfg=lightgreen
-hi LineNr ctermfg=lightblue
+hi LineNr ctermfg=grey
 
 "Highlights Current Line"
 set cursorline
@@ -65,7 +54,8 @@ hi CursorLine term=bold cterm=bold guibg=gray
 set textwidth=80
 
 "Loads Filetype-Specific Indent Files"
-filetype indent on
+set autoindent
+filetype plugin indent on
 
 "Visual Autocomplete For Command Menu"
 set wildmenu
@@ -80,10 +70,7 @@ hi MatchParen ctermbg=gray
 set hlsearch
 
 "Changes The Search Highlight Color"
-hi Search ctermbg=green
-
-"Maps Ctrl-c To Unhighlight Searches"
-map <C-c> :noh<CR>
+hi Search ctermbg=yellow
 
 "Incremental Searches"
 set incsearch
@@ -101,7 +88,13 @@ set ls=2
 set ruler
 
 "Hides Files Instead Of Closing Them"
-:set hidden
+set hidden
+
+"Enables Mouse For Scrolling Only In Vim"
+set mouse=a
+
+"Maps Ctrl-c To Unhighlight Searches"
+map <C-c> :noh<CR>
 
 "Maps Ctrl-n To Next Buffer"
 nnoremap <C-n> :bnext<CR>
@@ -115,6 +108,9 @@ vnoremap <C-j> <Esc>
 
 "Maps Space To Leader"
 let mapleader="\<Space>"
+
+"Maps Leader-i To gg=G"
+nnoremap <Leader>i gg=G
 
 "Maps Leader-n To NERDTree"
 nnoremap <Leader>n :NERDTree<CR>
