@@ -1,3 +1,3 @@
-# Tools
+# Dotfiles
 
-Nice tools to have for programming
+Dotfiles for configurations

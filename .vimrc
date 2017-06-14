@@ -50,12 +50,13 @@ hi LineNr ctermfg=grey
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=gray
 
-"Automatic Word Wrapping"
-set textwidth=80
-
 "Loads Filetype-Specific Indent Files"
 set autoindent
 filetype plugin indent on
+
+"Automatic Word Wrapping"
+au filetype * set fo+=t
+set textwidth=80
 
 "Visual Autocomplete For Command Menu"
 set wildmenu
@@ -110,7 +111,7 @@ vnoremap <C-j> <Esc>
 let mapleader="\<Space>"
 
 "Maps Leader-i To gg=G"
-nnoremap <Leader>i gg=G
+nnoremap <Leader>i gg=G :w<CR>
 
 "Maps Leader-n To NERDTree"
 nnoremap <Leader>n :NERDTree<CR>
@@ -176,6 +177,9 @@ Plug 'https://github.com/Yggdroot/indentLine.git'
 "Gitgutter Plugin"
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 
+"Vim-Tags Plugin"
+Plug 'https://github.com/szw/vim-tags.git'
+
 "Tagbar Plugin"
 Plug 'https://github.com/majutsushi/tagbar.git'
 
@@ -196,6 +200,9 @@ Plug 'https://github.com/keith/swift.vim.git'
 
 "Vim-Go Plugin"
 Plug 'https://github.com/fatih/vim-go.git'
+
+"Haskell-Vim Plugin"
+Plug 'https://github.com/neovimhaskell/haskell-vim.git'
 
 "Vim-Latex-Live-Preview Plugin"
 Plug 'https://github.com/xuhdev/vim-latex-live-preview.git'
