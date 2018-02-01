@@ -209,6 +209,9 @@ Plug 'https://github.com/xuhdev/vim-latex-live-preview.git'
 
 call plug#end()
 
+"Configuring NERDTree Colors"
+hi Directory ctermfg=darkcyan
+
 "Closes Vim If NERDTree Is The Only Window Left Open"
 autocmd bufenter * if(winnr("$")==1&&exists("b:NERDTree")&&b:NERDTree.isTabTree())|q|endif
 
@@ -216,8 +219,8 @@ autocmd bufenter * if(winnr("$")==1&&exists("b:NERDTree")&&b:NERDTree.isTabTree(
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-highlight SyntasticError ctermbg=red
-highlight SyntasticWarning ctermbg=red
+hi SyntasticError ctermbg=red
+hi SyntasticWarning ctermbg=red
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
