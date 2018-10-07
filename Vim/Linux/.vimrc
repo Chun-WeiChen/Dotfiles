@@ -207,6 +207,9 @@ Plug 'https://github.com/neovimhaskell/haskell-vim.git'
 "Vim-Latex-Live-Preview Plugin"
 Plug 'https://github.com/xuhdev/vim-latex-live-preview.git'
 
+"CSV.vim Plugin"
+Plug 'https://github.com/chrisbra/csv.vim'
+
 call plug#end()
 
 "Configuring NERDTree Colors"
