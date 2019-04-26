@@ -71,7 +71,7 @@ hi MatchParen ctermbg=gray
 set hlsearch
 
 "Changes The Search Highlight Color"
-hi Search ctermbg=yellow
+hi Search ctermbg=magenta
 
 "Incremental Searches"
 set incsearch
