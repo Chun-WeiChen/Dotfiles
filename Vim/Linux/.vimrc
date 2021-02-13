@@ -42,6 +42,9 @@ set expandtab
 "Display Line Numbers"
 set number
 
+"Looks For The Ctags Index File"
+set tags=tags
+
 "Changing Line Numbers Color"
 hi CursorLineNr ctermfg=lightgreen
 hi LineNr ctermfg=grey
