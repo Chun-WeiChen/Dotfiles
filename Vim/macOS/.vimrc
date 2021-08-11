@@ -97,7 +97,7 @@ set hidden
 "Enables Mouse For Scrolling Only In Vim"
 set mouse=a
 
-"Automatic Closing Brackets
+"Automatic Closing Brackets"
 inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ( ()<left>
@@ -109,6 +109,9 @@ inoremap {;<CR> {<CR>};<ESC>O
 "Maps Ctrl-c To Unhighlight Searches"
 map <C-c> :noh<CR>
 
+"Maps Ctrl-w To Close Current Buffer"
+nnoremap <C-w> :bd<CR>
+
 "Maps Ctrl-n To Next Buffer"
 nnoremap <C-n> :bnext<CR>
 
@@ -119,6 +122,9 @@ nnoremap <C-p> :bprev<CR>
 inoremap <C-j> <Esc>
 vnoremap <C-j> <Esc>
 
+"Maps Ctrl-t To FZF"
+nnoremap <C-t> :FZF<CR>
+
 "Maps Space To Leader"
 let mapleader="\<Space>"
 
@@ -127,9 +133,6 @@ nnoremap <Leader>i gg=G :w<CR>
 
 "Maps Leader-n To NERDTree"
 nnoremap <Leader>n :NERDTree<CR>
-
-"Maps Leader-t To FZF"
-nnoremap <Leader>t :FZF<CR>
 
 "Maps Leader-] To Tagbar"
 nnoremap <Leader>] :Tagbar<CR>
