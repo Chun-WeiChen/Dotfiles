@@ -97,6 +97,15 @@ set hidden
 "Enables Mouse For Scrolling Only In Vim"
 set mouse=a
 
+"Automatic Closing Brackets
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
 "Maps Ctrl-c To Unhighlight Searches"
 map <C-c> :noh<CR>
 
@@ -134,6 +143,9 @@ nnoremap <Leader>[ :SyntasticCheck<CR>
 "Maps Leader-l To LLPStartPreview"
 nnoremap <Leader>l :LLPStartPreview<CR>
 
+"Maps Leader-g To Gblame"
+nnoremap <Leader>g :Gblame<CR>
+
 "Word Processor Mode"
 function WordProcessorMode()
     :Goyo
@@ -168,20 +180,14 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Syntastic Plugin"
 Plug 'https://github.com/vim-syntastic/syntastic.git'
 
-"Supertab Plugin"
-Plug 'https://github.com/ervandew/supertab.git'
-
-"DelimitMate Plugin"
-Plug 'https://github.com/Raimondi/delimitMate.git'
-
 "IndentLine Plugin"
 Plug 'https://github.com/Yggdroot/indentLine.git'
 
+"Vim-Fugitive Plugin"
+Plug 'https://github.com/tpope/vim-fugitive'
+
 "Gitgutter Plugin"
 Plug 'https://github.com/airblade/vim-gitgutter.git'
-
-"Vim-Tags Plugin"
-Plug 'https://github.com/szw/vim-tags.git'
 
 "Tagbar Plugin"
 Plug 'https://github.com/majutsushi/tagbar.git'
@@ -197,6 +203,9 @@ Plug 'https://github.com/junegunn/goyo.vim.git'
 
 "Limelight Plugin"
 Plug 'https://github.com/junegunn/limelight.vim.git'
+
+"Kotlin.vim Plugin"
+Plug 'https://github.com/udalov/kotlin-vim'
 
 "Swift.vim Plugin"
 Plug 'https://github.com/keith/swift.vim.git'
