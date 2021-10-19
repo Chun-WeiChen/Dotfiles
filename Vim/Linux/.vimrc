@@ -177,6 +177,11 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
+"Coc Plugin"
+"Use release branch (recommend)"
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+"NERDTree Plugin"
 "NERDTree Will Be Loaded On The First Invocation Of NERDTreeToggle Command"
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -207,23 +212,8 @@ Plug 'https://github.com/junegunn/goyo.vim.git'
 "Limelight Plugin"
 Plug 'https://github.com/junegunn/limelight.vim.git'
 
-"Kotlin.vim Plugin"
-Plug 'https://github.com/udalov/kotlin-vim'
-
-"Swift.vim Plugin"
-Plug 'https://github.com/keith/swift.vim.git'
-
-"Vim-Go Plugin"
-Plug 'https://github.com/fatih/vim-go.git'
-
-"Haskell-Vim Plugin"
-Plug 'https://github.com/neovimhaskell/haskell-vim.git'
-
 "Vim-Latex-Live-Preview Plugin"
 Plug 'https://github.com/xuhdev/vim-latex-live-preview.git'
-
-"CSV.vim Plugin"
-Plug 'https://github.com/chrisbra/csv.vim'
 
 call plug#end()
 
@@ -279,4 +269,4 @@ let g:limelight_priority=-1
 
 "Configuring Vim-Latex-Live-Preview"
 autocmd Filetype tex setl updatetime=1
-let g:livepreview_previewer='okular'
+let g:livepreview_previewer='open -a Preview'
