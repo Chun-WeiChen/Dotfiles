@@ -177,10 +177,6 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
-"Coc Plugin"
-"Use release branch (recommend)"
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-
 "NERDTree Plugin"
 "NERDTree Will Be Loaded On The First Invocation Of NERDTreeToggle Command"
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
