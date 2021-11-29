@@ -109,8 +109,8 @@ inoremap {;<CR> {<CR>};<ESC>O
 "Maps Ctrl-c To Unhighlight Searches"
 map <C-c> :noh<CR>
 
-"Maps Ctrl-w To Close Current Buffer"
-nnoremap <C-w> :bd<CR>
+"Maps Ctrl-q To Close Current Buffer"
+nnoremap <C-q> :bd<CR>
 
 "Maps Ctrl-n To Next Buffer"
 nnoremap <C-n> :bnext<CR>
