@@ -115,8 +115,8 @@ nnoremap <C-q> :bd<CR>
 "Maps Ctrl-n To Next Buffer"
 nnoremap <C-n> :bnext<CR>
 
-"Maps Ctrl-p To Previous Buffer"
-nnoremap <C-p> :bprev<CR>
+"Maps Ctrl-m To Previous Buffer"
+nnoremap <C-m> :bprev<CR>
 
 "Maps Ctrl-j To Esc"
 inoremap <C-j> <Esc>
@@ -124,6 +124,9 @@ vnoremap <C-j> <Esc>
 
 "Maps Ctrl-t To FZF"
 nnoremap <C-t> :FZF<CR>
+
+"Maps Ctrl-p To Pastetoggle"
+set pastetoggle=<C-p>
 
 "Maps Space To Leader"
 let mapleader="\<Space>"
