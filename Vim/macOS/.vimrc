@@ -125,6 +125,10 @@ vnoremap <C-j> <Esc>
 "Maps Ctrl-t To FZF"
 nnoremap <C-t> :FZF<CR>
 
+"Need to install https://github.com/ggreer/the_silver_searcher"
+"Maps Ctrl-f To Ag"
+nnoremap <C-f> :Ag<CR>
+
 "Maps Ctrl-p To Pastetoggle"
 set pastetoggle=<C-p>
 
