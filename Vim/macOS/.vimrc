@@ -122,13 +122,6 @@ nnoremap <C-m> :bprev<CR>
 inoremap <C-j> <Esc>
 vnoremap <C-j> <Esc>
 
-"Maps Ctrl-t To FZF"
-nnoremap <C-t> :FZF<CR>
-
-"Need to install https://github.com/ggreer/the_silver_searcher"
-"Maps Ctrl-f To Ag"
-nnoremap <C-f> :Ag<CR>
-
 "Maps Ctrl-p To Pastetoggle"
 set pastetoggle=<C-p>
 
@@ -137,6 +130,13 @@ let mapleader="\<Space>"
 
 "Maps Leader-i To gg=G"
 nnoremap <Leader>i gg=G :w<CR>
+
+"Maps Leader-t To FZF"
+nnoremap <Leader>t :FZF<CR>
+
+"Need to install https://github.com/ggreer/the_silver_searcher"
+"Maps Leader-f To Ag"
+nnoremap <Leader>f :Ag<CR>
 
 "Maps Leader-n To NERDTree"
 nnoremap <Leader>n :NERDTree<CR>
