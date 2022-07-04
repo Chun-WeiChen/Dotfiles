@@ -154,7 +154,7 @@ nnoremap <Leader>[ :SyntasticCheck<CR>
 nnoremap <Leader>l :LLPStartPreview<CR>
 
 "Maps Leader-g To Gblame"
-nnoremap <Leader>g :Gblame<CR>
+nnoremap <Leader>g :Git blame<CR>
 
 "Word Processor Mode"
 function WordProcessorMode()
