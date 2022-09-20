@@ -97,15 +97,6 @@ set hidden
 "Enables Mouse For Scrolling Only In Vim"
 set mouse=a
 
-"Automatic Closing Brackets"
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-
 "Maps Ctrl-c To Unhighlight Searches"
 map <C-c> :noh<CR>
 
@@ -177,26 +168,29 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Asynchronous Lint Engine Plugin"
 Plug 'https://github.com/dense-analysis/ale'
 
-"IndentLine Plugin"
-Plug 'https://github.com/Yggdroot/indentLine.git'
+"Surround Plugin"
+Plug 'https://github.com/tpope/vim-surround'
 
-"Vim-Fugitive Plugin"
+"IndentLine Plugin"
+Plug 'https://github.com/yggdroot/indentline'
+
+"Fugitive Plugin"
 Plug 'https://github.com/tpope/vim-fugitive'
 
 "Gitgutter Plugin"
-Plug 'https://github.com/airblade/vim-gitgutter.git'
+Plug 'https://github.com/airblade/vim-gitgutter'
 
 "Tagbar Plugin"
-Plug 'https://github.com/majutsushi/tagbar.git'
+Plug 'https://github.com/preservim/tagbar'
 
-"Vim-Airline Plugin"
-Plug 'https://github.com/vim-airline/vim-airline.git'
+"Airline Plugin"
+Plug 'https://github.com/vim-airline/vim-airline'
 
-"Vim-Airline-Themes Plugin"
-Plug 'https://github.com/vim-airline/vim-airline-themes.git'
+"Airline-Themes Plugin"
+Plug 'https://github.com/vim-airline/vim-airline-themes'
 
-"Vim-Latex-Live-Preview Plugin"
-Plug 'https://github.com/xuhdev/vim-latex-live-preview.git'
+"Latex-Live-Preview Plugin"
+Plug 'https://github.com/xuhdev/vim-latex-live-preview'
 
 call plug#end()
 
@@ -212,7 +206,7 @@ highlight ALEWarning ctermbg=red
 
 "Configuring IndentLine"
 let g:indentLine_enabled=1
-let g:indentLine_char = '|'
+let g:indentLine_char='|'
 let g:indentLine_setColors=0
 
 "Configuring Vim-Airline"
