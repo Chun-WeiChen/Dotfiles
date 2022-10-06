@@ -97,6 +97,15 @@ set hidden
 "Enables Mouse For Scrolling Only In Vim"
 set mouse=a
 
+"Automatic Closing Brackets"
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
 "Maps Ctrl-c To Unhighlight Searches"
 map <C-c> :noh<CR>
 
