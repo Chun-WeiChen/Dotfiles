@@ -189,6 +189,10 @@ Plug 'https://github.com/tpope/vim-fugitive'
 "Gitgutter Plugin"
 Plug 'https://github.com/airblade/vim-gitgutter'
 
+"Gutentags Plugin"
+"Need to install ctags"
+Plug 'https://github.com/ludovicchabant/vim-gutentags'
+
 "Tagbar Plugin"
 Plug 'https://github.com/preservim/tagbar'
 
@@ -217,6 +221,9 @@ highlight ALEWarning ctermbg=red
 let g:indentLine_enabled=1
 let g:indentLine_char='|'
 let g:indentLine_setColors=0
+
+"Configuring Gutentags"
+set statusline+=%{gutentags#statusline()}
 
 "Configuring Vim-Airline"
 let g:airline_left_sep=""
