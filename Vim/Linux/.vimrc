@@ -13,17 +13,6 @@ set t_Co=256
 "Allows Backspacing Over Everything In Insert Mode"
 set backspace=indent,eol,start
 
-"Default Background"
-set bg=light
-
-"Configuring Text Colors"
-hi Comment ctermfg=darkgray
-hi Constant ctermfg=darkcyan
-hi Identifier ctermfg=lightblue
-hi Type ctermfg=brown
-hi Statement ctermfg=brown
-hi PreProc ctermfg=darkgreen
-
 "Configuring Conceal Colors"
 hi Conceal cterm=bold ctermbg=NONE ctermfg=gray
 
@@ -45,10 +34,6 @@ set number
 "Looks For The Ctags Index File"
 set tags=tags
 
-"Changing Line Numbers Color"
-hi CursorLineNr ctermfg=lightgreen
-hi LineNr ctermfg=grey
-
 "Highlights Current Line"
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=gray
@@ -67,14 +52,8 @@ set wildmenu
 "Highlights Matching [{()}]"
 set showmatch
 
-"Changes The Matching Brackets Highlight Color"
-hi MatchParen ctermbg=gray
-
 "Highlight Search Results"
 set hlsearch
-
-"Changes The Search Highlight Color"
-hi Search ctermbg=magenta
 
 "Incremental Searches"
 set incsearch
@@ -202,6 +181,9 @@ Plug 'https://github.com/vim-airline/vim-airline'
 "Airline-Themes Plugin"
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 
+"Nightfox Plugin"
+Plug 'https://github.com/EdenEast/nightfox.nvim'
+
 "Latex-Live-Preview Plugin"
 Plug 'https://github.com/xuhdev/vim-latex-live-preview'
 
@@ -233,7 +215,10 @@ let g:airline#extensions#tabline#left_sep=' '
 let g:airline#extensions#tabline#left_alt_sep='|'
 
 "Configuring Vim-Airline-Themes"
-let g:airline_theme='murmur'
+let g:airline_theme='onedark'
+
+"Setting Color Scheme"
+colorscheme carbonfox
 
 "Configuring Vim-Latex-Live-Preview"
 autocmd Filetype tex setl updatetime=1
