@@ -189,8 +189,9 @@ Plug 'https://github.com/xuhdev/vim-latex-live-preview'
 
 call plug#end()
 
-"Configuring NERDTree Colors"
+"Configuring NERDTree"
 hi Directory ctermfg=darkcyan
+let NERDTreeShowHidden=1
 
 "Closes Vim If NERDTree Is The Only Window Left Open"
 autocmd bufenter * if(winnr("$")==1&&exists("b:NERDTree")&&b:NERDTree.isTabTree())|q|endif
