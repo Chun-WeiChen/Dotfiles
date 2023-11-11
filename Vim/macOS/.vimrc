@@ -156,6 +156,9 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Asynchronous Lint Engine Plugin"
 Plug 'https://github.com/dense-analysis/ale'
 
+"Polyglot Plugin"
+Plug 'https://github.com/sheerun/vim-polyglot'
+
 "Surround Plugin"
 Plug 'https://github.com/tpope/vim-surround'
 
@@ -186,6 +189,9 @@ Plug 'https://github.com/EdenEast/nightfox.nvim'
 
 "Latex-Live-Preview Plugin"
 Plug 'https://github.com/xuhdev/vim-latex-live-preview'
+
+"Black Plugin"
+Plug 'https://github.com/psf/black'
 
 call plug#end()
 
@@ -224,3 +230,10 @@ colorscheme carbonfox
 "Configuring Vim-Latex-Live-Preview"
 autocmd Filetype tex setl updatetime=1
 let g:livepreview_previewer='open -a Preview'
+
+"Configuring Asynchronous Lint Engine"
+let g:ale_linters={'python': ['flake8']}
+let g:ale_python_flake8_options='--max-line-length=80'
+
+"Configuring Black"
+let g:black_linelength=80
