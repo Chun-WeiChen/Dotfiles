@@ -1,0 +1,18 @@
+""""""""""""""""""""""""""""""""""""""""""""
+
+"ESSENTIALS"
+
+""""""""""""""""""""""""""""""""""""""""""""
+
+"Maps Ctrl-q To Close Current Buffer"
+nnoremap <C-q> :bd<CR>
+
+"Maps Ctrl-n To Next Buffer"
+nnoremap <C-n> :bnext<CR>
+
+"Maps Ctrl-m To Previous Buffer"
+nnoremap <C-m> :bprev<CR>
+
+"Maps Ctrl-j To Esc"
+inoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
