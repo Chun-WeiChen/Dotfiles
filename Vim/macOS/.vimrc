@@ -184,8 +184,8 @@ Plug 'https://github.com/vim-airline/vim-airline'
 "Airline-Themes Plugin"
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 
-"Nightfox Plugin"
-Plug 'https://github.com/EdenEast/nightfox.nvim'
+"Onedark Plugin"
+Plug 'https://github.com/joshdick/onedark.vim'
 
 "Latex-Live-Preview Plugin"
 Plug 'https://github.com/xuhdev/vim-latex-live-preview'
@@ -225,7 +225,7 @@ let g:airline#extensions#tabline#left_alt_sep='|'
 let g:airline_theme='onedark'
 
 "Setting Color Scheme"
-colorscheme carbonfox
+colorscheme onedark
 
 "Configuring Vim-Latex-Live-Preview"
 autocmd Filetype tex setl updatetime=1
