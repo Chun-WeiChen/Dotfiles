@@ -115,7 +115,7 @@ nnoremap <Leader>t :FZF<CR>
 
 "Need to install https://github.com/ggreer/the_silver_searcher"
 "Maps Leader-f To Ag"
-nnoremap <Leader>f :Ag<CR>
+nnoremap <Leader>f :Ag<Space>
 
 "Maps Leader-n To NERDTree"
 nnoremap <Leader>n :NERDTree<CR>
@@ -184,8 +184,8 @@ Plug 'https://github.com/vim-airline/vim-airline'
 "Airline-Themes Plugin"
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 
-"Nightfox Plugin"
-Plug 'https://github.com/EdenEast/nightfox.nvim'
+"Onedark Plugin"
+Plug 'https://github.com/joshdick/onedark.vim'
 
 "Latex-Live-Preview Plugin"
 Plug 'https://github.com/xuhdev/vim-latex-live-preview'
@@ -225,7 +225,7 @@ let g:airline#extensions#tabline#left_alt_sep='|'
 let g:airline_theme='onedark'
 
 "Setting Color Scheme"
-colorscheme carbonfox
+colorscheme onedark
 
 "Configuring Vim-Latex-Live-Preview"
 autocmd Filetype tex setl updatetime=1

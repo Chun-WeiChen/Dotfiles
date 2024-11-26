@@ -115,7 +115,7 @@ nnoremap <Leader>t :FZF<CR>
 
 "Need to install https://github.com/ggreer/the_silver_searcher"
 "Maps Leader-f To Ag"
-nnoremap <Leader>f :Ag<CR>
+nnoremap <Leader>f :Ag<Space>
 
 "Maps Leader-n To NERDTree"
 nnoremap <Leader>n :NERDTree<CR>
