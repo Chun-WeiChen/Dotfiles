@@ -79,8 +79,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    zsh-autosuggestions
-    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -110,7 +108,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -118,3 +115,9 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+# Run brew install powerlevel10k
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+# Run brew install zsh-autosuggestions
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Run brew install zsh-syntax-highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
