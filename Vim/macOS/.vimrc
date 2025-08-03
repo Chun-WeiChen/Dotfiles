@@ -7,8 +7,8 @@
 "Enable Syntax Highlighting"
 syntax enable
 
-"Enables 256 Colors In Vim"
-set t_Co=256
+"Enables True Color Support"
+set termguicolors
 
 "Allows Backspacing Over Everything In Insert Mode"
 set backspace=indent,eol,start
@@ -146,7 +146,7 @@ nnoremap <Leader>g :Git blame<CR>
 call plug#begin()
 
 "FZF Plugin"
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 "NERDTree Plugin"
@@ -178,14 +178,14 @@ Plug 'https://github.com/ludovicchabant/vim-gutentags'
 "Tagbar Plugin"
 Plug 'https://github.com/preservim/tagbar'
 
+"Catppuccin Plugin"
+Plug 'https://github.com/catppuccin/vim', { 'as': 'catppuccin' }
+
 "Airline Plugin"
 Plug 'https://github.com/vim-airline/vim-airline'
 
 "Airline-Themes Plugin"
 Plug 'https://github.com/vim-airline/vim-airline-themes'
-
-"Onedark Plugin"
-Plug 'https://github.com/joshdick/onedark.vim'
 
 "Latex-Live-Preview Plugin"
 Plug 'https://github.com/xuhdev/vim-latex-live-preview'
@@ -198,9 +198,6 @@ call plug#end()
 "Configuring NERDTree"
 hi Directory ctermfg=darkcyan
 let NERDTreeShowHidden=1
-
-"Closes Vim If NERDTree Is The Only Window Left Open"
-autocmd bufenter * if(winnr("$")==1&&exists("b:NERDTree")&&b:NERDTree.isTabTree())|q|endif
 
 "Configuring Asynchronous Lint Engine"
 highlight ALEError ctermbg=red
@@ -222,10 +219,10 @@ let g:airline#extensions#tabline#left_sep=' '
 let g:airline#extensions#tabline#left_alt_sep='|'
 
 "Configuring Vim-Airline-Themes"
-let g:airline_theme='onedark'
+let g:airline_theme = 'catppuccin_mocha'
 
 "Setting Color Scheme"
-colorscheme onedark
+colorscheme catppuccin_mocha
 
 "Configuring Vim-Latex-Live-Preview"
 autocmd Filetype tex setl updatetime=1
