@@ -122,9 +122,6 @@ export FZF_CTRL_T_OPTS="
   --style default
   --preview 'fzf-preview.sh {}'"
 
-# https://github.com/scmbreeze/scm_breeze
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
-
 # Run brew install powerlevel10k
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # Run brew install zsh-autosuggestions
