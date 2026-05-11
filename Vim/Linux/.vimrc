@@ -209,6 +209,8 @@ let g:indentLine_char='|'
 let g:indentLine_setColors=0
 
 "Configuring Gutentags"
+let g:gutentags_modules=['ctags']
+let g:gutentags_ctags_executable='ctags'
 set statusline+=%{gutentags#statusline()}
 
 "Configuring Vim-Airline"
@@ -219,7 +221,7 @@ let g:airline#extensions#tabline#left_sep=' '
 let g:airline#extensions#tabline#left_alt_sep='|'
 
 "Configuring Vim-Airline-Themes"
-let g:airline_theme = 'catppuccin_mocha'
+let g:airline_theme='catppuccin_mocha'
 
 "Setting Color Scheme"
 colorscheme catppuccin_mocha
