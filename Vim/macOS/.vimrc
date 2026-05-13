@@ -31,9 +31,6 @@ set expandtab
 "Display Line Numbers"
 set number
 
-"Looks For The Ctags Index File"
-set tags=tags
-
 "Highlights Current Line"
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=gray
@@ -43,8 +40,9 @@ set autoindent
 filetype plugin indent on
 
 "Automatic Word Wrapping"
-au filetype * set fo+=t
-set textwidth=80
+set wrap
+set linebreak
+set breakindent
 
 "Visual Autocomplete For Command Menu"
 set wildmenu
@@ -63,12 +61,6 @@ set ignorecase
 
 "Start Diff Mode With Vertical Splits"
 set diffopt=vertical
-
-"Always Displays The Status Line"
-set ls=2
-
-"Display The Cursor Position On The Last Line Of The Screen Or In The Status Line Of A Window"
-set ruler
 
 "Hides Files Instead Of Closing Them"
 set hidden
@@ -94,9 +86,6 @@ nnoremap <C-q> :bd<CR>
 "Maps Ctrl-n To Next Buffer"
 nnoremap <C-n> :bnext<CR>
 
-"Maps Ctrl-m To Previous Buffer"
-nnoremap <C-m> :bprev<CR>
-
 "Maps Ctrl-j To Esc"
 inoremap <C-j> <Esc>
 vnoremap <C-j> <Esc>
@@ -113,24 +102,24 @@ nnoremap <Leader>i gg=G :w<CR>
 "Maps Leader-t To FZF"
 nnoremap <Leader>t :FZF<CR>
 
-"Need to install https://github.com/ggreer/the_silver_searcher"
-"Maps Leader-f To Ag"
-nnoremap <Leader>f :Ag<Space>
+"Need to install Ripgrep"
+"Maps Leader-f To Rg"
+nnoremap <Leader>f :Rg<Space>
+
+"Maps Leader-F To Search Word Under Cursor"
+nnoremap <Leader>F :Rg <C-r><C-w><CR>
+
+"Maps Leader-l To Browse All Ctags Symbols With FZF"
+nnoremap <Leader>l :Tags<CR>
+
+"Maps Leader-L to Browse Tags In Current File Only"
+nnoremap <Leader>L :BTags<CR>
 
 "Maps Leader-n To NERDTree"
 nnoremap <Leader>n :NERDTree<CR>
 
-"Maps Leader-] To Tagbar"
-nnoremap <Leader>] :Tagbar<CR>
-
-"Maps Leader-q To SyntasticToggleMode"
-nnoremap <Leader>q :SyntasticToggleMode<CR>
-
-"Maps Leader-[ To SyntasticCheck"
-nnoremap <Leader>[ :SyntasticCheck<CR>
-
-"Maps Leader-l To LLPStartPreview"
-nnoremap <Leader>l :LLPStartPreview<CR>
+"Maps Leader-b To Tagbar"
+nnoremap <Leader>b :Tagbar<CR>
 
 "Maps Leader-g To Gblame"
 nnoremap <Leader>g :Git blame<CR>
@@ -152,6 +141,21 @@ Plug 'junegunn/fzf.vim'
 "NERDTree Plugin"
 "NERDTree Will Be Loaded On The First Invocation Of NERDTreeToggle Command"
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+"Rooter Plugin"
+Plug 'https://github.com/airblade/vim-rooter'
+
+"Vim LSP Plugin"
+Plug 'https://github.com/prabirshrestha/vim-lsp'
+
+"Vim LSP Settings Plugin"
+Plug 'https://github.com/mattn/vim-lsp-settings'
+
+"Asyncomplete Plugin"
+Plug 'https://github.com/prabirshrestha/asyncomplete.vim'
+
+"Asyncomplete LSP Plugin"
+Plug 'https://github.com/prabirshrestha/asyncomplete-lsp.vim'
 
 "Asynchronous Lint Engine Plugin"
 Plug 'https://github.com/dense-analysis/ale'
@@ -187,21 +191,51 @@ Plug 'https://github.com/vim-airline/vim-airline'
 "Airline-Themes Plugin"
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 
-"Latex-Live-Preview Plugin"
-Plug 'https://github.com/xuhdev/vim-latex-live-preview'
-
-"Black Plugin"
-Plug 'https://github.com/psf/black'
-
 call plug#end()
 
 "Configuring NERDTree"
 hi Directory ctermfg=darkcyan
 let NERDTreeShowHidden=1
 
+"Configuring Rooter"
+let g:rooter_patterns = ['.git', 'pyproject.toml', 'package.json', 'Cargo.toml', 'setup.py']
+
 "Configuring Asynchronous Lint Engine"
 highlight ALEError ctermbg=red
 highlight ALEWarning ctermbg=red
+let g:ale_linters_explicit = 1
+let g:ale_linters = {'python': ['ruff']}
+let g:ale_fixers = {'python': ['ruff', 'ruff_format']}
+let g:ale_fix_on_save = 1
+let g:ale_python_ruff_executable = 'ruff'
+let g:ale_virtualenv_dir_names = ['.venv', 'venv', '.env', 'env']
+let g:ale_python_ruff_options = '--line-length 150'
+let g:ale_python_ruff_format_options = '--line-length 150'
+
+"Configuring Vim-LSP"
+"This function runs automatically when a language server attaches to a buffer"
+"Using a function + augroup ensures mappings are only active where LSP is running"
+function! s:on_lsp_buffer_enabled() abort
+    "Go to the definition of the symbol under the cursor"
+    nmap <buffer> <Leader>d <Plug>(lsp-definition)
+    "Show documentation/type signature for the symbol under the cursor"
+    nmap <buffer> <Leader>p <Plug>(lsp-hover)
+endfunction
+"augroup isolates these autocommands so re-sourcing your vimrc"
+"Doesn't register duplicate handlers (au! clears the group first)"
+augroup lsp_install
+    au!
+    "Trigger the function above whenever LSP becomes active in a buffer"
+    au User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+"Configuring Vim-LSP-Settings"
+"Ruff handles lint/style - pylsp does intellisense only"
+let g:lsp_settings = {'pylsp-all': {'workspace_config': {'pylsp': {'plugins': {}}}}}
+let s:pylsp_plugins = g:lsp_settings['pylsp-all'].workspace_config.pylsp.plugins
+let s:pylsp_plugins.pycodestyle = {'enabled': v:false}
+let s:pylsp_plugins.pyflakes    = {'enabled': v:false}
+let s:pylsp_plugins.mccabe      = {'enabled': v:false}
 
 "Configuring IndentLine"
 let g:indentLine_enabled=1
@@ -210,8 +244,6 @@ let g:indentLine_setColors=0
 
 "Configuring Gutentags"
 let g:gutentags_modules=['ctags']
-let g:gutentags_ctags_executable='ctags'
-set statusline+=%{gutentags#statusline()}
 
 "Configuring Vim-Airline"
 let g:airline_left_sep=""
@@ -226,13 +258,3 @@ let g:airline_theme='catppuccin_mocha'
 "Setting Color Scheme"
 colorscheme catppuccin_mocha
 
-"Configuring Vim-Latex-Live-Preview"
-autocmd Filetype tex setl updatetime=1
-let g:livepreview_previewer='open -a Preview'
-
-"Configuring Asynchronous Lint Engine"
-let g:ale_linters={'python': ['flake8']}
-let g:ale_python_flake8_options='--max-line-length=80'
-
-"Configuring Black"
-let g:black_linelength=80
